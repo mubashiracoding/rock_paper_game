@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="display: flex;justify-content: center;align-items: center; height: 100vh;">
+    <div class="container" style="background-color: gray;" >
+        <p id="player">player:</p>
+        <p id="computer">computer:</p>
+        <p id="result">result</p>
+        <button onclick="playgame('paper')">Paper</button>
+        <button onclick="playgame('rock')">Rock</button>
+        <button onclick="playgame('scissors')">Scissors</button>
+    </div>
+    <script>
+        function playgame(userChoice) {
+            const choices=['rock','paper','scissors'];
+            const random=Math.floor(Math.random()*3);
+            const system=choices[random];  
+            document.getElementById('player').textContent=`player:${userChoice}`;
+            document.getElementById('computer').textContent=`computer:${system}`;
+            let result='';
+            if (userChoice === system) {
+                result = "It's a tie!";
+            } else if (
+                (userChoice === 'rock' && system === 'scissors') ||
+                (userChoice === 'paper' && system === 'rock') ||
+                (userChoice === 'scissors' && system === 'paper')
+            ) {
+                result = "You win!";
+            } else {
+                result = "You lose!";
+            }
+
+            
+            document.getElementById('result').textContent = "Result: " + result;
+        }
+
+            
+        
+
+
+
+
+
+    </script>
+</body>
+</html>
